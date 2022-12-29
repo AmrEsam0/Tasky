@@ -4,36 +4,52 @@ import 'package:flutter/material.dart';
 
 import '../assets/colors/colors.dart';
 
-class LoginField extends StatelessWidget {
-  const LoginField({
+class LoginField extends StatefulWidget {
+  LoginField({
     super.key,
     required this.hintText,
     this.obscureText = false,
     required this.prefixIcon,
-    this.suffixIcon,
     this.controller,
+    required this.isPassword,
   });
 
   final TextEditingController? controller;
   final String hintText;
-  final bool obscureText;
+  bool obscureText;
   final IconData prefixIcon;
-  final IconData? suffixIcon;
+  bool isPassword;
 
+  @override
+  State<LoginField> createState() => _LoginFieldState();
+}
+
+class _LoginFieldState extends State<LoginField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
-      obscureText: obscureText,
+      controller: widget.controller,
+      obscureText: widget.obscureText,
       style: const TextStyle(
         color: textMain,
       ),
       decoration: InputDecoration(
-        prefixIcon: Icon(prefixIcon, color: dimLights),
-        suffixIcon: obscureText ? Icon(suffixIcon, color: dimLights) : null,
+        prefixIcon: Icon(widget.prefixIcon, color: dimLights),
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    widget.obscureText = !widget.obscureText;
+                  });
+                },
+                icon: Icon(
+                  widget.obscureText ? Icons.visibility_off : Icons.visibility,
+                  color: dimLights,
+                ))
+            : null,
         fillColor: backgroundLight2,
         filled: true,
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: TextStyle(
           color: textMain,
         ),
