@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:tasky/assets/colors/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../assets/colors/colors.dart';
 import '../components/login_field.dart';
 
 class LoginPage extends StatelessWidget {
@@ -25,15 +26,15 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: textMain,
+                  SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: SvgPicture.asset(
+                      'lib/assets/logo.svg',
+                      color: mainColor2,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 80),
                   LoginField(
                     hintText: 'Email',
                     controller: _emailController,
@@ -46,6 +47,52 @@ class LoginPage extends StatelessWidget {
                     prefixIcon: Icons.lock,
                     obscureText: true,
                     suffixIcon: Icons.visibility,
+                  ),
+                  const SizedBox(height: 40),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: mainColor2,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 86,
+                        vertical: 12,
+                      ),
+                    ),
+                    child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.black)),
+                  ),
+                  const SizedBox(height: 20),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: textMain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Don\'t have an account?',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: textMain,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: mainColor2,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
