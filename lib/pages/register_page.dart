@@ -6,17 +6,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../assets/colors/colors.dart';
 import '../components/login_field.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
-
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +54,14 @@ class _LoginPageState extends State<LoginPage> {
                       prefixIcon: Icons.lock,
                       obscureText: true,
                     ),
+                    const SizedBox(height: 20),
+                    LoginField(
+                      isPassword: true,
+                      hintText: 'Confirm Password',
+                      controller: _confirmPasswordController,
+                      prefixIcon: Icons.lock,
+                      obscureText: true,
+                    ),
                     const SizedBox(height: 40),
                     ElevatedButton(
                       onPressed: () {},
@@ -64,25 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                           vertical: 12,
                         ),
                       ),
-                      child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.black)),
-                    ),
-                    const SizedBox(height: 20),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: textMain,
-                        ),
-                      ),
+                      child: Text('Register', style: TextStyle(fontSize: 18, color: Colors.black)),
                     ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Don\'t have an account?',
+                          'Already have an account?',
                           style: TextStyle(
                             fontSize: 14,
                             color: textMain,
@@ -91,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         TextButton(
                           onPressed: () {},
                           child: Text(
-                            'Sign Up',
+                            'Log in',
                             style: TextStyle(
                               fontSize: 14,
                               color: mainColor2,

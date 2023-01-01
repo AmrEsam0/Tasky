@@ -20,6 +20,7 @@ class DialogBox extends StatelessWidget {
       backgroundColor: backgroundLight,
       title: const Text('Add new todo', style: TextStyle(color: Colors.white)),
       content: TextField(
+        autofocus: true,
         style: const TextStyle(color: Colors.white),
         cursorColor: mainColor,
         controller: controller,

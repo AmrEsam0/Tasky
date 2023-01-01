@@ -75,24 +75,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: SizedBox(
-        width: 0.2 * MediaQuery.of(context).size.width,
-        height: 0.2 * MediaQuery.of(context).size.width,
+        width: 0.8 * MediaQuery.of(context).size.width,
+        height: 0.14 * MediaQuery.of(context).size.width,
         child: FloatingActionButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0.01 * MediaQuery.of(context).size.width),
+          ),
           onPressed: createNewTodo,
           backgroundColor: mainColor,
           child: const Icon(Icons.add, size: 32),
         ),
       ),
-      body: ListView.builder(
-        itemCount: db.todos.length,
-        itemBuilder: (context, index) {
-          return ToDoTile(
-            title: db.todos[index]['title'],
-            isDone: db.todos[index]['isDone'],
-            onChanged: (value) => checkboxTapped(index),
-            onDismissed: (context) => deleteTodo(index),
-          );
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 0.2 * MediaQuery.of(context).size.width),
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            itemCount: db.todos.length,
+            itemBuilder: (context, index) {
+              return ToDoTile(
+                title: db.todos[index]['title'],
+                isDone: db.todos[index]['isDone'],
+                onChanged: (value) => checkboxTapped(index),
+                onDismissed: (context) => deleteTodo(index),
+              );
+            },
+          ),
+        ),
       ),
     );
   }
