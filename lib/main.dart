@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tasky/pages/home_page.dart';
+import 'package:tasky/pages/login_page.dart';
 
 import 'assets/colors/colors.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         canvasColor: backgroundDark2,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
