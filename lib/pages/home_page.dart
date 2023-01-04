@@ -79,7 +79,8 @@ class _HomePageState extends State<HomePage> {
         height: 0.14 * MediaQuery.of(context).size.width,
         child: FloatingActionButton(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(0.01 * MediaQuery.of(context).size.width),
+            borderRadius:
+                BorderRadius.circular(0.01 * MediaQuery.of(context).size.width),
           ),
           onPressed: createNewTodo,
           backgroundColor: mainColor,
@@ -89,7 +90,8 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(bottom: 0.2 * MediaQuery.of(context).size.width),
+          padding:
+              EdgeInsets.only(bottom: 0.2 * MediaQuery.of(context).size.width),
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount: db.todos.length,
