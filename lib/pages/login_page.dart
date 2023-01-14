@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 
 import '../assets/colors/colors.dart';
 import '../components/login_field.dart';
@@ -30,16 +30,15 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 48, 24, 48),
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 48),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: SvgPicture.asset('lib/assets/logo2.svg'),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 24),
+                      child: Lottie.asset('lib/assets/animation/launch.json'),
                     ),
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 8),
                     LoginField(
                       isPassword: false,
                       hintText: 'Email',
