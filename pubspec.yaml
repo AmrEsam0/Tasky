@@ -41,6 +41,7 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_svg: ^1.1.6
   lottie: ^2.2.0
+  flutter_animate: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
     - lib/assets/logo2.svg
     - lib/assets/final_logo.svg
     - lib/assets/animation/launch.json
+    - lib/assets/animation/comp1.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
