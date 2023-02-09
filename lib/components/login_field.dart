@@ -37,6 +37,7 @@ class _LoginFieldState extends State<LoginField> {
         prefixIcon: Icon(widget.prefixIcon, color: dimLights),
         suffixIcon: widget.isPassword
             ? IconButton(
+                splashRadius: .1,
                 onPressed: () {
                   setState(() {
                     widget.obscureText = !widget.obscureText;

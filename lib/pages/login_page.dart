@@ -56,7 +56,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 40),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'HomePage');
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: mainColor2,
                         padding: const EdgeInsets.symmetric(
@@ -64,7 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                           vertical: 12,
                         ),
                       ),
-                      child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.black)),
+                      child: Text('Login',
+                          style: TextStyle(fontSize: 18, color: Colors.black)),
                     ),
                     const SizedBox(height: 20),
                     TextButton(
